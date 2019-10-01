@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+  <html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Form Validation - CISW 400 - Lisa Nguyen</title>
+      <link rel="stylesheet" href="css/style.css">
+      <script type="text/javascript">
+
+        //city empty field
+        function checkCity(){
+          if (document.smartform.city.value=='') {
+            alert("Please enter a City");
+            document.smartform.city.focus();
+
+          }
+        }
+
+        //State contain 2 characters
+          function checkState() {
+            if (document.smartform.state.value.length!=2) {
+              alert("Please enter a state");
+              document.smartform.state.focus();
+
+            }
+          }
+
+          //check both are letters and Convert small letters to caps
+          function validState(){
+            if (!(document.smartform.state.value.charCodeAt('0')>=65) && (document.smartform.state.value.charCodeAt('0')<=91)){
+              alert("Please enter a valid State");
+              document.smartform.state.focus();
+
+
+            } else {
+              document.smartform.state.value = document.smartform.state.value.toUpperCase();
+            }
+          }
+
+          function validState1(){
+            if (!(document.smartform.state.value.charCodeAt('1')>=65) && (document.smartform.state.value.charCodeAt('1')<=91)){
+              alert("Please enter a valid State");
+              document.smartform.state.focus();
+
+            } else {
+              document.smartform.state.value = document.smartform.state.value.toUpperCase();
+            }
+          }
+
+
+        //zip contain 5 digits
+        function checkZip(){
+          if (document.smartform.zip.value=='') {
+            alert("Please enter Zip Code");
+            document.smartform.zip.focus();
+        }
+          else if ((document.smartform.zip.value.length!=5) || (isNaN(document.smartform.zip.value))) {
+              alert("Please enter a valid zip code");
+              document.smartform.zip.focus();
+          }
+      }
+        //email at least 3 characters, one of which is an “@” symbol.
+        function checkEmail(){
+          if (document.smartform.email.value=='') {
+            alert("Please enter your Email");
+            document.smartform.email.focus();
+          }
+
+          else if ((document.smartform.email.value.length<3) || (document.smartform.email.value.includes('@')== false) ) {
+            alert("Please enter a valid email address");
+            document.smartform.email.focus();
+          }
+        }
+
+        //autofill if value zip code entered
+        function autoFill(){
+      if (document.smartform.zip.value=="95758" || document.smartform.zip.value=="95624"){
+          document.smartform.state.value = "CA";
+          document.smartform.city.value = "Elk Grove";
+      }
+    }
+
+        //call function
+        function checkForm(){
+          checkCity();
+          checkState();
+          validState();
+          validState1();
+          checkZip();
+          checkEmail();
+        }
+
+
+      </script>
+    </head>
+    <body onload="javascript:document.smartform.city.focus();">
+      <header class="top-header">
+        <h1>Lisa Nguyen @ CRC</h1>
+        <h2>CISW 400 (Javascript) - Spring 2019 - Fishman</h2>
+      </header>
+
+      <div class="container">
+          <h1><a href="index.html"> &larr; Back</a></h1>
+        <div class="row-a">
+          <h3>Assignments #5: Form Validation</h3>
+        </div>
+          <div class="row-a">
+            <div class="column">
+              <h4>Enter Personal Info:</h4>
+              <form name="smartform" action="#"   >
+                <h4>City</h4>
+                <input type="text" name="city" >
+                <h4>State</h4>
+                <input type="text" name="state" maxlength="2"  >
+                <h4>Zip Code</h4>
+                <input type="text" name="zip" onclick=" validState(); validState1()" >
+                <h4>Email</h4>
+                <input type="text" name="email" onclick="autoFill()" >
+                <br>
+                <br>
+                <input type="submit" name="submit" value="Submit" onclick="autoFill(); checkForm()" >
+              </form>
+            </div>
+
+          </div>
+
+        <div class="row">
+          <h3 style="text-align:center;"><a href="index.html"> ASSIGNMENT HOMEPAGE</a></h3>
+          <h4 class="time-stamp">Last Modified: <script language="javascript">
+            document.write(document.lastModified);
+            </script>
+          </h4>
+        </div>
+      </div>
+    </body>
+  </html>

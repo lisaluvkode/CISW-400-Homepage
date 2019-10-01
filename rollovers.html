@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+  <html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Rollovers - CISW 400 - Lisa Nguyen</title>
+      <link rel="stylesheet" href="css/style.css">
+      <script language="JavaScript">
+      if (document.images) {
+	     // Variable Declaration
+	      var DICE1=new Image();
+	      var DICE2=new Image();
+        var LINK1=new Image();
+        var LINK2=new Image();
+        var INDEED1=new Image();
+        var INDEED2=new Image();
+        var CRC1=new Image();
+        var CRC2=new Image();
+
+	// Assign variable references to the actual image files
+	      DICE1.src="images/dice.png";
+	      DICE2.src="images/dicetxt.png";
+        LINK1.src="images/linkedin.png";
+	      LINK2.src="images/linkedintxt.png";
+	      INDEED1.src="images/indeed.png";
+        INDEED2.src="images/indeedtxt.png";
+        CRC1.src="images/crc_color.png";
+        CRC2.src="images/crc_bw.png";
+        }
+        else {
+          alert('Your browser lacks the capabilities required to run this script');
+        }
+      </script>
+    </head>
+    <body>
+      <header class="top-header">
+        <h1>Lisa Nguyen @ CRC</h1>
+        <h2>CISW 400 (Javascript) - Spring 2019 - Fishman</h2>
+      </header>
+
+      <div class="container">
+          <h1><a href="index.html"> &larr; Back</a></h1>
+        <div class="row-a">
+          <h3>Assignments #2: Rollovers</h3>
+        </div>
+          <div class="row-a">
+            <div class="column img">
+                <a href="http://dice.com" onMouseOver="document.rollover1.src=DICE2.src" onMouseOut="document.rollover1.src=DICE1.src"><img name="rollover1" src="images/dice.png" width="250" height="200" alt="Dice"> </a>
+            </div>
+            <div class="column img">
+                <a href="http://indeed.com" onMouseOver="document.rollover2.src=INDEED2.src" onMouseOut="document.rollover2.src=INDEED1.src"><img name="rollover2" src="images/indeed.png" width="250" height="200" alt="Indeed"> </a>
+            </div>
+            <div class="column img">
+                <a href="http://linkedin.com"
+                onMouseOver="document.rollover3.src=LINK2.src"
+                onMouseOut="document.rollover3.src=LINK1.src">
+                <img name="rollover3" src="images/linkedin.png" width="250" height="200" alt="Linkedin"> </a>
+            </div>
+          </div>
+
+          <div class="row-a">
+            <div class="crc_home">
+            <a href="http://www.crc.losrios.edu/" onMouseOver="document.rollover_CRC.src=CRC2.src; document.rollover1.style.opacity=0.5;document.rollover2.style.opacity=0.5; document.rollover3.style.opacity=0.5;" onMouseOut="document.rollover_CRC.src=CRC1.src; document.rollover1.style.opacity=1; document.rollover2.style.opacity=1; document.rollover3.style.opacity=1;"><img name="rollover_CRC" src="images/crc_color.png" width="250" height="150"  alt="Dice"> </a>
+          </div>
+        </div>
+
+        <div class="row">
+          <h3 style="text-align:center;"><a href="index.html"> ASSIGNMENT HOMEPAGE</a></h3>
+          <h4 class="time-stamp">Last Modified: <script language="javascript">
+            document.write(document.lastModified);
+            </script>
+          </h4>
+        </div>
+      </div>
+    </body>
+  </html>

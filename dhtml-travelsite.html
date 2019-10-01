@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+  <html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>DHTML Travel Site - CISW 400 - Lisa Nguyen</title>
+      <link rel="stylesheet" href="css/style.css">
+      <script type="text/javascript" src="a6_script.js">
+      </script>
+    </head>
+    <body>
+      <header class="top-header">
+        <h1>Lisa Nguyen @ CRC</h1>
+        <h2>CISW 400 (Javascript) - Spring 2019 - Fishman</h2>
+      </header>
+
+      <div class="container">
+        <h1><a href="index.html"> &larr; Back</a></h1>
+        <div class="row-a">
+          <h3>Assignment #6: DHTML Travel Site</h3>
+        </div>
+        <div class="row-a">
+          <h1 class="title">Travel Net</h1>
+      </div>
+      <div class="row-a">
+        <div>
+          <p>Select Destination:</p>
+          <form id="f1">
+            <select id="s1" size="3" onchange="changePix()">
+              <option value="Hong Kong" selected>Hong Kong</option>
+              <option value="Singapore">Singapore</option>
+              <option value="Vietnam">Vietnam</option>
+            </select>
+          </form>
+          </div>
+          <div class="imgpad">
+          <div id="thumb1" >
+            <img src="images/hk1.jpg" alt="destination image" width="150" height="100" onmouseover="document.bp.src='images/hk1.jpg'">
+          </div>
+        </div>
+        <div class="imgpad">
+          <div id="thumb2" >
+            <img src="images/hk2.png" alt="destination image" width="150" height="100" onmouseover="document.bp.src='images/hk2.png'">
+          </div>
+        </div>
+        <div class="imgpad">
+          <div id="thumb3" >
+            <img src="images/hk3.jpg" alt="destination image" width="150" height="100" onmouseover="document.bp.src='images/hk3.jpg'">
+          </div>
+        </div>
+        <div class="imgpad">
+          <div id="thumb4">
+            <img src="images/hk4.jpg" alt="destination image" width="150" height="100" onmouseover="document.bp.src='images/hk4.jpg'">
+          </div>
+        </div>
+        <div class="row-a">
+          <div class="column ">
+          <div id="bigPic" >
+            <img class="bigPic" src="images/hk1.jpg" name="bp" alt="Large destination image" width="600" height="400">
+          </div>
+        </div>
+      </div>
+
+        </div>
+        <div class="row">
+          <h3 style="text-align:center;"><a href="index.html"> ASSIGNMENT HOMEPAGE</a></h3>
+          <h4 class="time-stamp">Last Modified: <script language="javascript">
+            document.write(document.lastModified);
+            </script>
+          </h4>
+        </div>
+      </div>
+    </body>
+  </html>

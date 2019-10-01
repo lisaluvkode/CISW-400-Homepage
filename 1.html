@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+  <html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Form Validation - CISW 400 - Lisa Nguyen</title>
+      <link rel="stylesheet" href="css/style.css">
+      <script type="text/javascript">
+//Returns error message if city field is empty.
+		function checkCity()
+		{
+			if (document.smartform.city.value == ""){
+				alert("City field is empty.");
+			}
+		}
+
+
+//Replaces any string longer than 2 in state field with the first 2 letters of that string.
+		function convertState(txt)
+		{
+			txt.value=txt.value.toUpperCase();
+			var max_chars = 2;
+
+			if(txt.value.length > max_chars)
+			{
+				txt.value = txt.value.substr(0, max_chars);
+			}
+		}
+
+//If either the first or second character do not match the character ID an error message pops up.
+		function checkState()
+		{
+			if ((!(smartform.state.value.charCodeAt('0')>=65 && smartform.state.value.charCodeAt('0')<=91)) || (!(smartform.state.value.charCodeAt('1')>=65 && smartform.state.value.charCodeAt('1')<=91)))
+			{
+				alert("State is not valid.");
+			}
+		}
+
+//Only the first 5 numbers are kept in the zip field.
+		function checkZip(num)
+		{
+			var max_num = 5;
+
+			if(num.value.length > max_num)
+			{
+				num.value = num.value.substr(0, max_num);
+			}
+		}
+//Checks zip form for minimum length and numbers.
+		function check_zip()
+		{
+			if ((isNaN(document.smartform.zip.value)) || (document.smartform.zip.value == "") || (document.smartform.zip.length < 5))
+			{
+				alert("Zip is invalid.");
+			}
+		}
+//Checks for @ sign and mimimum length of 3
+		function checkEmail()
+		{
+
+         	atsign = document.smartform.email.value.indexOf("@");
+
+         	if (atsign < 1 || (smartform.zip.value.length < 3 )) {
+            	alert("Email is invalid.");
+         	}
+      	}
+
+	</script>
+
+    </head>
+    <body onload="javascript:document.smartform.city.focus();">
+      <header class="top-header">
+        <h1>Lisa Nguyen @ CRC</h1>
+        <h2>CISW 400 (Javascript) - Spring 2019 - Fishman</h2>
+      </header>
+
+      <div class="container">
+          <h1><a href="index.html"> &larr; Back</a></h1>
+        <div class="row-a">
+          <h3>Assignments #5: Form Validation</h3>
+        </div>
+          <div class="row-a">
+            <div class="column">
+              <h4>Enter Personal Info:</h4>
+              <form name="smartform" action="#" onsubmit="javascript:checkCity();checkState();check_zip();checkEmail()"  >
+                <h4>City</h4>
+                <input type="text" name="city" >
+                <h4>State</h4>
+                <input type="text" name="state" maxlength="2" onblur="javascript:convertState(smartform.state)"  >
+                <h4>Zip Code</h4>
+                <input type="text" name="zip" onblur="javascript:"checkZip(smartform.zip)" >
+                <h4>Email</h4>
+                <input type="text" name="email" onclick="autoFill()" >
+                <br>
+                <br>
+                <input type="submit" name="submit" value="Submit" onclick="autoFill(); checkForm()" >
+              </form>
+            </div>
+
+          </div>
+
+        <div class="row">
+          <h3 style="text-align:center;"><a href="index.html"> ASSIGNMENT HOMEPAGE</a></h3>
+          <h4 class="time-stamp">Last Modified: <script language="javascript">
+            document.write(document.lastModified);
+            </script>
+          </h4>
+        </div>
+      </div>
+    </body>
+  </html>

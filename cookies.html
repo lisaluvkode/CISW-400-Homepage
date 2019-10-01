@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+  <html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Cookies Screen Saver - CISW 400 - Lisa Nguyen</title>
+      <link rel="stylesheet" href="css/style.css">
+      <script type="text/javascript">
+
+      expireDate=new Date();
+      expireDate.setMonth(expireDate.getMonth()+6);
+
+        var skin="";
+        var myRegExp=/;/g; //SEARCH FOR ";"
+
+        //LOAD COOKIES
+        if (document.cookie!="") {
+          skin=document.cookie.split("=")[1];
+          semi=skin.search(myRegExp);
+          if (semi !=-1) {   //RE-ASSIGN CHAR ONLY BEFORE ";"
+            skin=skin.substring(0,semi);
+          }
+        }
+
+        //BUILD & STORE COOKIES
+        function setCookie(){
+          skin=document.f.s.value;
+          if (skin=="lights" || skin=="rocks" || skin=="beach") {
+            document.cookie="skin="+skin+";expires="+expireDate.toGMTString();
+          }
+          else {
+            alert('Not Valid Skin');   //ALERT IF SKIN NOT MATCH
+          }
+        }
+
+        //ENTER KEY
+        function checkEnter(){
+          if (window.event.keycode==13) {
+            setCookie();
+          }
+        }
+      </script>
+
+    </head>
+    <body>
+      <!--CHANGE BG IMG -->
+     <script>
+        if (skin=="lights") {
+            document.body.style.background="url('images/abstract.png')"
+            document.body.style.backgroundSize="cover"
+            document.body.style.color="white"
+        } else if (skin=="rocks") {
+            document.body.style.background="url('images/ss1.jpg')"
+            document.body.style.backgroundSize="cover"
+            document.body.style.color="white"
+          } else if (skin=="beach") {
+            document.body.style.background="url('images/ss2.jpg')"
+            document.body.style.backgroundSize="cover"
+            document.body.style.color="white"
+          }
+      </script>
+
+      <div style="text-align:center">
+        <h1>Lisa Nguyen @ CRC</h1>
+        <h2>CISW 400 (Javascript) - Spring 2019 - Fishman</h2>
+      </div>
+
+      <div class="container">
+        <h1><a href="index.html"> &larr; Back</a></h1>
+        <div class="row-b">
+          <h3>Assignment #7: Cookies Screen Saver</h3>
+          <hr>
+        </div>
+      <div class="row-b">
+        <center><h1>{User Preferences}</h1>
+        <br><h2>Skin:<b>
+          <script>document.write(skin)</script></b></h2>
+        </center>
+      </div>
+        <form name="f">
+          <h3>Change Skin:
+          <input type="text" name="s" onkeydown="javascript:checkEnter()">
+          (Styles include: lights, rocks, beach)
+          <br>
+          <input type="submit" value="save" onclick="javascript:setCookie()">
+          </h3>
+        </form>
+
+        <div class="row">
+          <h3 style="text-align:center;"><a href="index.html"> ASSIGNMENT HOMEPAGE</a></h3>
+          <h4 class="time-stamp">Last Modified: <script language="javascript">
+            document.write(document.lastModified);
+            </script>
+          </h4>
+        </div>
+      </div>
+    </body>
+  </html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+  <html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Arrays - Slide Show w/Random - CISW 400 - Lisa Nguyen</title>
+      <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body onload="rotate()">
+      <header class="top-header">
+        <h1>Lisa Nguyen @ CRC</h1>
+        <h2>CISW 400 (Javascript) - Spring 2019 - Fishman</h2>
+      </header>
+
+      <div class="container">
+          <h1><a href="index.html"> &larr; Back</a></h1>
+        <div class="row-a">
+          <h3>Assignments #4: Arrays - Slide Show with random (Extra Credit) </h3>
+        </div>
+          <div class="row-a">
+            <div class="column img_array">
+                <a href="javascript:newLocation()"><img src="images/rock.png" style="height:200px; max-width:100%;"  name="banner" alt="images"> </a>
+            </div>
+          </div>
+
+        <div class="row">
+          <h3 style="text-align:center;"><a href="index.html"> ASSIGNMENT HOMEPAGE</a></h3>
+          <h4 class="time-stamp">Last Modified: <script language="javascript">
+            document.write(document.lastModified);
+            </script>
+          </h4>
+        </div>
+      </div>
+
+      <script language="JavaScript">
+        var photos = new Array ("images/rock.png","images/paper.png","images/scissor.png");
+        var photoURLs = new Array ("https://freecodecamp.org","https://codecademy.com","https://codepen.io");
+
+        //slide show
+        /*var i = 0;
+        var imgCount = photoURLs.length;
+
+        function rotate(){
+          i++;
+          if (i == imgCount) {
+            i = 0;
+          }
+          document.banner.src=photos[i];
+          setTimeout("rotate()", 2000);
+        }
+        */
+
+        //random
+        var i = 0;
+        function rotate(){
+          i = Math.floor(Math.random() * Math.floor(photos.length));
+          document.banner.src=photos[i];
+          setTimeout("rotate()", 2000);
+        }
+        function newLocation(){
+          document.location.href = photoURLs[i];
+        }
+      </script>
+    </body>
+  </html>

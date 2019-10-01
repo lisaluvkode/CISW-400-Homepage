@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+  <html lang="en" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Mortage Calculator - CISW 400 - Lisa Nguyen</title>
+      <link rel="stylesheet" href="css/style.css">
+      <script type="text/javascript">
+      function Calculate() {
+
+      var P = f.amt.value;
+      var R = f.rate.value;
+      var N = f.term.value;
+
+      var M = (R / 100)/12;
+      var T = N * 12;
+      var Payment = Math.floor(( P * M )/(1- Math.pow(( 1 + M ),(-1 * T))) * 100)/100;
+
+      if ( isNaN(Payment) ) {
+      	Payment = "";
+      }
+
+      document.getElementById("output").innerHTML = Payment ;
+      remoteCalc(P, R, N);
+      }
+      function remoteCalc(P, R, N) {
+    if (P.length == 0) {
+        document.getElementById("outputAJAX").innerHTML = "";
+        return;
+    } else {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("outputAJAX").innerHTML = this.responseText;
+            }
+        }
+        xmlhttp.open("GET", "mortcalc.php?P="+P+"&R="+R+"&N="+N+"&tm="+event.timeStamp, true);
+        xmlhttp.send();
+    }
+}
+
+    </script>
+
+    </head>
+    <body>
+      <header class="top-header">
+        <h1>Lisa Nguyen @ CRC</h1>
+        <h2>CISW 400 (Javascript) - Spring 2019 - Fishman</h2>
+      </header>
+
+      <div class="container">
+        <h1><a href="index.html"> &larr; Back</a></h1>
+        <div class="row-b">
+          <h3>Extra-Credit Assignment: Mortage Calculator</h3>
+          <hr>
+        </div>
+
+        <form name="f">
+          <h3>Mortgage Payment Calculator</h3>
+          <h4>Enter Loan Date and Click the Calculate Button</h4>
+          <hr>
+          <h4>Loan Amount $</h4>
+          <input type="text" name="amt" value="">
+          <h4>Annual Intrest Rate</h4>
+          <input type="text" name="rate" value="">
+          <h4>Loan Term (in years)</h4>
+          <input type="text" name="term" value="">
+          <input type="button" name="" value="Calculate" onclick="javascript:Calculate()">
+          <hr>
+          <h4>Monthly Payment $</h4>
+          <h4 id="output"></h4>
+          <h4>Monthly Payment Ajax</h4>
+          <h4 id="outputAJAX"></h4>
+
+
+        </form>
+
+        <div class="row">
+          <h3 style="text-align:center;"><a href="index.html"> ASSIGNMENT HOMEPAGE</a></h3>
+          <h4 class="time-stamp">Last Modified: <script language="javascript">
+            document.write(document.lastModified);
+            </script>
+          </h4>
+        </div>
+      </div>
+    </body>
+  </html>
